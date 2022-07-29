@@ -1,6 +1,6 @@
 package com.example.android4hw1.di
 
-import com.example.android4hw1.data.remote.apiservices.NetWorkClient
+import com.example.android4hw1.data.remote.NetWorkClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

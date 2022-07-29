@@ -9,15 +9,17 @@ import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.android4hw1.Either
 import com.example.android4hw1.R
+import com.example.android4hw1.base.BaseFragment
 import com.example.android4hw1.databinding.FragmentHeroesDetailBinding
 
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HeroesDetailFragment : Fragment(R.layout.fragment_heroes_detail) {
+class HeroesDetailFragment :
+    BaseFragment<HeroesDetailViewModel, FragmentHeroesDetailBinding>(R.layout.fragment_heroes_detail) {
 
-    private val viewBinding by viewBinding(FragmentHeroesDetailBinding::bind)
-    private val viewModel: HeroesDetailViewModel by viewModels()
+    override val binding by viewBinding(FragmentHeroesDetailBinding::bind)
+    override val viewModel: HeroesDetailViewModel by viewModels()
     private val args by navArgs<HeroesDetailFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +35,7 @@ class HeroesDetailFragment : Fragment(R.layout.fragment_heroes_detail) {
                 }
                 is Either.Right -> {
                     it.value.forEach { detailHeroModel ->
-                        viewBinding.nameDetailHeroes.text = detailHeroModel.leagueName
+                        binding.nameDetailHeroes.text = detailHeroModel.leagueName
                     }
                 }
             }

@@ -29,7 +29,7 @@ data class DetailHeroModel(
     val matchId: Long = 0,
 
     @SerializedName("league_name")
-    val leagueName: String = "",
+    val     leagueName: String = "",
 
     @SerializedName("player_slot")
     val playerSlot: Int = 0,
